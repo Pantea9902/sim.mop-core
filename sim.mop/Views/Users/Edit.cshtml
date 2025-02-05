@@ -1,0 +1,60 @@
+﻿@model sim.mop.Models.TblUser
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TblUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @* <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="fldId" />
+            <div class="form-group">
+                <label asp-for="fldMgCode" class="control-label"></label>
+                <input asp-for="fldMgCode" class="form-control" />
+                <span asp-validation-for="fldMgCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fldName" class="control-label"></label>
+                <input asp-for="fldName" class="form-control" />
+                <span asp-validation-for="fldName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fldUserName" class="control-label"></label>
+                <input asp-for="fldUserName" class="form-control" />
+                <span asp-validation-for="fldUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fldPassword" class="control-label"></label>
+                <input asp-for="fldPassword" class="form-control" />
+                <span asp-validation-for="fldPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="fldIsActive" /> @Html.DisplayNameFor(model => model.fldIsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="fldPermission" class="control-label"></label>
+                <input asp-for="fldPermission" class="form-control" />
+                <span asp-validation-for="fldPermission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form> *@
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

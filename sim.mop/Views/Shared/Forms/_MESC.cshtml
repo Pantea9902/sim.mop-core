@@ -1,0 +1,91 @@
+﻿ @using Microsoft.AspNetCore.Http;
+@model sim.mop.Models.TblInternalConstruct
+@* @{
+
+	string name = Context.Session.GetString("fldUserName");
+	
+
+} *@
+<form asp-action="Create" asp-controller="Home" class="row g-10" style="font-family:'B Nazanin';font-size:16;">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	
+	<div class="col-xl-4">
+		<label class="form-label fs-5 fw-bold mb-3">مرکز طبقه بندی</label>
+		<select class="form-select form-select-solid " data-control="select2" data-hide-search="true" data-placeholder="Select " name="fldMESCCenter" data-select2-id="fldMESCCenter" tabindex="-1" aria-hidden="true" data-kt-initialized="1">
+			<option value="" data-select2-id="select2-data-15-jeds">Select ...</option>
+			<option data-select2-id="select2-data-124-q1qm">N</option>
+			<option data-select2-id="select2-data-125-a8a4">S</option>
+			<option data-select2-id="select2-data-125-a8a4">R</option>
+			<option data-select2-id="select2-data-125-a8a4">G</option>
+			<option data-select2-id="select2-data-125-a8a4">D</option>
+
+		</select>
+		<span class="select2 select2-container select2-container--bootstrap5 select2-container--focus select2-container--below select2-container--open" dir="rtl" data-select2-id="select2-data-14-0sgp" style="width: 100%;"></span>
+		<label for="fldMESC">MESCشماره </label>
+		<input class="form-control form-control-solid" placeholder="" id="fldMESC" name="fldMESC" type="number"><br>
+
+		<label class="form-label fs-5 fw-bold mb-3">نوع</label>
+
+		<select class="form-select form-select-solid " data-control="select2" data-hide-search="true" data-placeholder="Select " name="fldType" data-select2-id="fldType" tabindex="-1" aria-hidden="true" data-kt-initialized="1">
+			<option value="" data-select2-id="select2-data-15-jeds">Select ...</option>
+			<option data-select2-id="fldType">قطعه</option>
+			<option data-select2-id="fldType">تجهیز</option>
+		</select>
+		<span class="select2 select2-container select2-container--bootstrap5 select2-container--focus select2-container--below select2-container--open" dir="rtl" data-select2-id="fldType" style="width: 100%;"></span>
+		<label for="fldValue">قیمت برآوردی </label>
+		<input class="form-control form-control-solid" placeholder="" id="fldValue" name="fldValue" type="number"><br>
+	</div>
+	<div class="col-xl-4">
+		<div class="fv-row mb-7">
+			<!--begin::Checkbox-->
+			<label class="form-check form-check-custom form-check-solid me-9">
+				<input class="form-check-input" type="checkbox" asp-for="fldInternalConstruct" id="FldInternalConstruct" onclick="enableName(this, 'fldDepth'),enableName(this, 'fldConstructorName'),enableName(this, 'fldConstructorID'),disableName(this,'fldNeedOfYear'),disableName(this,'fldConstructPlanYear');">
+				<span class="form-check-label" for="inside"> ساخت داخل شده</span>
+			</label><br>
+			<!--end::Checkbox-->
+		</div>
+		<label for="Depth">  عمق ساخت داخل(درصد)   </label>
+		<input type="number" class="form-control form-control-solid" placeholder="" id="fldDepth" name="fldDepth" disabled><br>
+		<label for="Name"> نام سازنده </label>
+		<input class="form-control form-control-solid" placeholder="" id="fldConstructorName" name="fldConstructorName" disabled><br>
+		<label for="ID">  شناسه ملی سازنده </label>
+		<input class="form-control form-control-solid" placeholder="" id="fldConstructorID" name="fldConstructorID" type="number" disabled><br>
+
+	</div>
+	<div class="col-xl-4">
+		<div class="fv-row mb-7">
+			<!--begin::Checkbox-->
+			<label class="form-check form-check-custom form-check-solid me-9">
+				<input class="form-check-input" type="checkbox" asp-for="fldRahbordi" id="strategic" >
+				<span class="form-check-label" for="strategic"> راهبردی</span>
+			</label><br>
+			<!--end::Checkbox-->
+		</div>
+		<div class="fv-row mb-7">
+			<!--begin::Checkbox-->
+			<label class="form-check form-check-custom form-check-solid me-9">
+				<input class="form-check-input" type="checkbox" name="fldPorMasraf" id="fldPorMasraf" value="False">
+				@* <input type="hidden" value="False" id="fldPorMasraf" name="fldPorMasraf"> *@
+				<span class="form-check-label" for="fldPorMasraf"> پر مصرف </span>
+			</label><br>
+			<!--end::Checkbox-->
+		</div>
+
+		<label for="fldNeedOfYear"> برآورد نیاز سالانه </label>
+		<input class="form-control form-control-solid" placeholder="" name="fldNeedOfYear" id="fldNeedOfYear" type="number"><br>
+		<label class="form-label fs-5 fw-bold mb-3">برنامه آینده جهت ساخت داخل</label>
+
+		<select class="form-select form-select-solid " data-control="select2" data-hide-search="true" data-placeholder="Select " name="fldConstructPlanYear" data-select2-id="fldConstructPlanYear" id="fldConstructPlanYear" tabindex="-1" aria-hidden="true" data-kt-initialized="1">
+			<option value="" data-select2-id="select2-data-15-jeds">Select ...</option>
+			<option data-select2-id="fldConstructPlanYear">1403</option>
+			<option data-select2-id="fldConstructPlanYear">1404</option>
+			<option data-select2-id="fldConstructPlanYear">1405</option>
+			<option data-select2-id="fldConstructPlanYear">1406</option>
+			<option data-select2-id="fldConstructPlanYear">1407</option>
+		</select>
+		<span class="select2 select2-container select2-container--bootstrap5 select2-container--focus select2-container--below select2-container--open" dir="rtl" data-select2-id="fldConstructPlanYear" style="width: 100%;"></span>
+	</div>
+	<div class="col-xl-2">
+		<button class="btn btn-info btn-flat" type="submit" >افزودن و ذخیره</button>
+	</div>
+</form>

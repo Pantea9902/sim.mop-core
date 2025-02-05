@@ -1,0 +1,156 @@
+﻿ @using Microsoft.AspNetCore.Http;
+@model sim.mop.Models.TblInternalConstruct
+
+<div class="modal fade" tabindex="-1" id="editModal" aria-labelledby="editModalLabel">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<!--begin::Close-->
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+					<span id="closeModal" class="svg-icon svg-icon-2x"></span>
+				</div>
+				<!--end::Close-->
+			</div>
+			<div class="modal-body">
+				<form id="detailsForm">
+					<div class="row mb-5">
+
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<div class="form-group">
+								<!--begin::Label-->
+								<label class="required fs-5 fw-bold mb-2">نام سازنده</label>
+								<!--end::Label-->
+								<!--begin::Input-->
+								<input type="text" class="form-control " name="modalName" id="modalName" />
+
+							</div>
+							<!--end::Input-->
+
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<!--end::Label-->
+							<label class="required fs-5 fw-bold mb-2">شناسه ملی سازنده</label>
+							<!--end::Label-->
+							<!--end::Input-->
+
+							<input type="number" class="form-control form-control-solid"
+								   name="modalId" autocomplete="off" id="modalId" />
+
+							<!--end::Input-->
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+					</div>
+					<div class="row mb-5">
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<!--begin::Label-->
+							<label class="required fs-5 fw-bold mb-2">عمق</label>
+							<!--end::Label-->
+							<!--begin::Input-->
+							<input type="number" class="form-control form-control-solid" name="modalDepth" id="modalDepth" autocomplete="off">
+							<!--end::Input-->
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<!--end::Label-->
+							<label class="required fs-5 fw-bold mb-2">برآورد نیاز سالانه</label>
+							<!--end::Label-->
+							<!--end::Input-->
+							<input type="number" class="form-control form-control-solid" name="modalneedyear" id="modalneedyear">
+							<!--end::Input-->
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+
+					</div>
+					<div class="row mb-5">
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<!--end::Label-->
+							<label class="required fs-5 fw-bold mb-2">برنامه آینده جهت ساخت داخل</label>
+							<!--end::Label-->
+							<!--end::Input-->
+							<select id="modalplanyear" class="form-select form-select-solid " name="modalplanyear">
+								<option value="" data-select2-id="select2-data-15-jeds">Select ...</option>
+								<option value="1403" data-select2-id="select2-data-124-q1qm">1403</option>
+								<option value="1404" data-select2-id="select2-data-125-a8a4">1404</option>
+								<option value="1405" data-select2-id="select2-data-125-a8a4">1405</option>
+								<option value="1406" data-select2-id="select2-data-125-a8a4">1406</option>
+								<option value="1407" data-select2-id="select2-data-125-a8a4">1407</option>
+							</select>
+							<!--end::Input-->
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-6 fv-row fv-plugins-icon-container">
+							<!--begin::Label-->
+							<label class="required fs-5 fw-bold mb-2">نوع</label>
+							<select id="modalType" class="form-select form-select-solid " name="modalType">
+								<option value="" data-select2-id="select2-data-15-jeds">Select ...</option>
+								<option value="قطعه" data-select2-id="select2-data-124-q1qm">قطعه</option>
+								<option value="تجهیز" data-select2-id="select2-data-125-a8a4">تجهیز</option>
+
+							</select>
+							<!--end::Input-->
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<!--end::Col-->
+						<div class="row mb-5">
+							<!--begin::Col-->
+							<div class="col-md-4 fv-row fv-plugins-icon-container">
+								<!--end::Label-->
+								<label class="required fs-5 fw-bold mb-2">راهبردی</label>
+								<!--end::Label-->
+								<!--end::Input-->
+								<input class="form-check-input" type="checkbox" id="modalrah" name="modalrah">
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col-md-4 fv-row fv-plugins-icon-container">
+								<!--end::Label-->
+								<label class="required fs-5 fw-bold mb-2">پرمصرف</label>
+								<!--end::Label-->
+								<!--end::Input-->
+								<input class="form-check-input" type="checkbox" id="modalpormasraf" name="modalpormasraf">
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col-md-4 fv-row fv-plugins-icon-container">
+								<!--end::Label-->
+								<label class="required fs-5 fw-bold mb-2">ساخت داخل شده</label>
+								<!--end::Label-->
+								<!--end::Input-->
+								<input class="form-check-input" type="checkbox" id="modalinternal" name="modalinternal">
+								<!--end::Input-->
+								<div class="fv-plugins-message-container invalid-feedback"></div>
+							</div>
+							<!--end::Col-->
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="modal-footer">
+
+
+				<button type="submit" class="btn btn-primary">ذخیره</button>
+
+				<button type="button" class="btn btn-light" data-bs-dismiss="modal">بستن</button>
+			</div>
+
+		</div>
+	</div>
+</div>

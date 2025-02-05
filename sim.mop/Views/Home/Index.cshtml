@@ -1,0 +1,380 @@
+﻿ @using Microsoft.AspNetCore.Http;
+@model IEnumerable<sim.mop.Models.VwDataTable>
+@{
+	var counter = 1;
+}
+
+ <!DOCTYPE html>
+
+<html direction="rtl" dir="rtl" style="direction: rtl">
+	<!--begin::Head-->
+	<head><base href="../../">
+		
+		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+		<meta property="og:url" content="https://keenthemes.com/metronic" />
+		<meta property="og:site_name" content="Keenthemes | Metronic" />
+		@* <link rel="canonical" href="https://preview.keenthemes.com/metronic8" /> *@
+	<link rel="shortcut icon" href="../../assets/media/logos/favicon.ico" />
+		<!--begin::Fonts-->
+		
+    <link href="~/css/font.css" rel="stylesheet" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendor Stylesheets(used by this page)-->
+	<link href="../../assets/css/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(used by all pages)-->
+		<link href="../../assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" />
+		<link href="../../assets/css/style.bundle.rtl.css" rel="stylesheet" type="text/css" />
+	<link href="../../assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/style.bundle.rtl.css" rel="stylesheet" type="text/css">
+   @*  <link href="~/css/bootstrap.min.css" rel="stylesheet" /> *@
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/Javascript"></script>
+
+	<script type="text/JavaScript">
+		function enableName(ctrl, txtId) {
+			if (ctrl.checked)
+				$('#' + txtId).removeAttr('disabled');
+			else
+				$('#' + txtId).attr('disabled', 'disabled');
+		}
+	</script>
+	<script type="text/JavaScript">
+
+	   function disableName(ctrl, txtId) {
+     	if (ctrl.unchecked)
+	     $('#' + txtId).removeAttr('disabled');
+	    else
+	      $('#' + txtId).attr('disabled', 'disabled');
+		}</script>
+
+		<!--end::Global Stylesheets Bundle-->
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<!--begin::Main-->
+			@{
+		string name = Context.Session.GetString("fldUserName"); // Default to "Guest" if null
+		string Name = Context.Session.GetString("fldName");
+			}
+			<div>
+			<h1> @Name!</h1>
+		</div>
+			<!--begin::Root-->
+		<div class="d-flex flex-column flex-root" >
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+		<!--begin::Wrapper-->
+			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper" style="padding-right:0px;">
+				<!--begin::Content-->
+				<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+			<!--begin::Post-->
+					<div class="post d-flex flex-column-fluid" id="kt_post" >
+						<div id="kt_content_container" class="container-xxl">
+						<!--begin::Container-->
+						<div class="g-5 gx-xxl-8">
+								<div class="card card-xxl-stretch">
+									<div class="rounded border p-10">
+										<ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
+											<li class="nav-item">
+												<a class="nav-link active" data-bs-toggle="tab" href="#MESC" style="font-family:'B Nazanin';font-size:20;"> استانداردMESC اقلام دارای</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-bs-toggle="tab" href=#Dummy style="font-family:'B Nazanin';font-size:20;"> Dummy اقلام</a>
+											</li>
+											
+										</ul>
+										<div class="tab-content" id="myTabContent">
+											@{
+												var formModel =new TblInternalConstruct();
+																
+											}
+											<div class="tab-pane fade show active" id="MESC" role="tabpanel">
+												<partial name="Forms/_MESC" model="formModel" />
+												</div>
+											<div class="tab-pane fade" id="Dummy" role="tabpanel">
+												<partial name="Forms/_Dummy" model="formModel" />
+												
+											</div>
+										</div>
+										<div>
+											<partial name="Forms/_Modal" model="formModel" />
+										</div>
+									</div>
+							<!--begin::Card-->
+								<div class="card" >
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6">
+										<div class="table-responsive">
+										<table id="kt_datatable_example_1" class="table align-middle table-row-dashed fs-6 gy-5">
+										    <thead>
+														<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+														
+												<th style=" background-color:royalblue ">
+													ردیف
+												</th>
+
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">MESC شماره</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending"> MESC شرح</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">نوع</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">راهبردی</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending"> پرمصرف</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending"> قیمت برآوردی(ریال)</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">ساخت داخل شده</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">نام سازنده</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">شناسه ملی سازنده</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">برآورد نیاز سالانه</th>
+															<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+																aria-sort="ascending">عمق</th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">برنامه آینده جهت ساخت داخل </th>
+												<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+													aria-sort="ascending">عملیات </th>
+															<th style=" background-color:royalblue " tabindex="0" aria-controls="Info" rowspan="1" colspan="1"
+																aria-sort="ascending">عملیات </th>
+											</tr>
+										</thead>
+													
+										<tbody>
+														
+
+												@foreach (var item in Model.Where(i => i.fldRegUser ==@name))
+											{
+															
+															<tr class="item-row" >
+													<td>
+													@counter
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldMESC)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldDescHeader)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldType)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldRahbordi)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldPorMasraf)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldValue)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldInternalConstruct)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldConstructorName)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldConstructorID)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldNeedOfYear)
+													</td>
+													<td>
+															@Html.DisplayFor(modelItem => item.fldDepth)
+													</td>
+													<td >
+															@Html.DisplayFor(modelItem => item.fldConstructPlanYear)
+													 </td>
+
+													<td style="text-align:center;">
+														<form method="post" asp-controller="Home" asp-action="Delete" asp-route-id="@item.fldID">
+															@Html.AntiForgeryToken()
+															<button class="btn btn-primary" type="submit" data-placement="top" data-toggle="tooltip" >حذف
+																	@* <i class="fa fa-trash-o"></i> *@
+															</button>
+														</form>
+													</td>
+															<td style="text-align:center;">
+																<button type="submit" class="btn btn-primary open-modal" data-name="@item.fldConstructorName"
+																		data-id="@item.fldConstructorID" data-type="@item.fldType" data-rahbordi="@item.fldRahbordi" data-pormasraf="@item.fldPorMasraf"
+																		data-internal="@item.fldInternalConstruct" data-planyear="@item.fldCertPlanYear" data-needyear="@item.fldNeedOfYear" 
+																		data-depth="@item.fldDepth" data-bs-toggle="modal" data-bs-target="#editModal">
+																		ویرایش
+																</button>
+																	
+															</td>
+																
+												</tr>
+
+												counter += 1;
+															
+											}
+														
+													</tbody>
+												
+											</table>
+												
+										<!--end::Table-->
+										 
+										</div>
+									<!--end::Card body-->
+							     	</div>
+								<!--end::Card-->
+							  	 </div>
+									
+							<!--end::Container-->
+						</div>
+					</div>
+						<!--end::Post-->
+                     <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+								
+				</div>
+				        </div>
+					
+		             </div>
+				<!--end::Wrapper-->
+		         </div>
+			 </div>
+			</div>
+		</div>
+				@* </div>
+		  </div>
+		</div>
+		</div> *@
+			<!--end::Page-->
+			<!--end::Root-->
+		<!--begin::Drawers-->
+		<!--begin::Activities drawer-->
+		<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
+			<div class="card shadow-none rounded-0">
+			<!--begin::Footer-->
+				<div class="card-footer py-5 text-center" id="kt_activities_footer">
+					<a href="../../demo1/dist/pages/profile/activity.html" class="btn btn-bg-body text-primary">View All Activities
+					<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
+					<span class="svg-icon svg-icon-3 svg-icon-primary">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							<rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="black" />
+							<path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="black" />
+						</svg>
+					</span>
+					<!--end::Svg Icon--></a>
+				</div>
+				<!--end::Footer-->
+			</div>
+		</div>
+		<!--end::Activities drawer-->
+	<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+			<span class="svg-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+		</div>
+		<!--end::Scrolltop-->
+		<!--end::Main-->
+	<script>var hostUrl = "../../assets/";</script>
+		<!--begin::Javascript-->
+		<!--begin::Global Javascript Bundle(used by all pages)-->
+		<script src="../../assets/plugins/global/plugins.bundle.js"></script>
+		<script src="../../assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Page Vendors Javascript(used by this page)-->
+		<script src="../../assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Page Vendors Javascript-->
+		<!--begin::Page Custom Javascript(used by this page)-->
+		<script src="../../assets/js/custom/apps/customers/list/export.js"></script>
+		<script src="../../assets/js/custom/apps/customers/list/list.js"></script>
+		<script src="../../assets/js/custom/apps/customers/add.js"></script>
+		<script src="../../assets/js/custom/widgets.js"></script>
+		<script src="../../assets/js/custom/apps/chat/chat.js"></script>
+		<script src="../../assets/js/custom/modals/create-app.js"></script>
+		<script src="../../assets/js/custom/modals/upgrade-plan.js"></script>
+		<script src="../../assets/js/custom/documentation/forms/select2.js"></script>
+    <script src="~/js/jquery-3.6.0.min.js"></script>
+    <script src="~/js/jquery-3.7.1.js"></script>
+    <script src="~/js/datatables.js"></script>
+    <script src="/metronic8/demo1/assets/js/custom/utilities/modals/new-address.js"></script>
+    <a href="~/assets/js/custom/modals/new-address.js.map"></a>
+    <script src="~/assets/js/custom/modals/new-address.js"></script>
+    <script src="~/js/new-address.js"></script>
+	<script src="~/js/jquery-detaile.min.js"></script>
+
+		<!--end::Page Custom Javascript-->
+		<!--end::Javascript-->
+								@section Scripts
+		                         {
+			<script>
+
+	new DataTable('#kt_datatable_example_1');
+		   </script>
+		<script>
+			$(document).ready(function () {
+				// Attach click event listener to all buttons with the class 'open-modal'
+				$('.open-modal').click(function () {
+					// Get data attributes from the clicked button
+					var row = $(this);
+
+					// var name = row.attr("data-name");
+					var name = $(this).data('name');
+					var id = row.attr("data-id");
+					var type = row.attr("data-type");
+					var rahbordi = row.attr("data-rahbordi")
+					var pormasraf = row.attr("data-pormasraf")
+					var internal = row.attr("data-internal")
+					var planyear = row.attr("data-planyear")
+					var needyear = row.attr("data-needyear")
+					var depth = row.attr("data-depth")
+
+					// Set the modal content
+					$('.modal-body #modalName').val(name);
+					$('#modalId').val(id);
+					$('#modalType').val(type).change();
+					$('#modalneedyear').val(needyear);
+					$('#modalplanyear').val(planyear).change();
+					$('#modalDepth').val(depth);
+
+
+					console.log(rahbordi);
+					if (rahbordi == 'True') {
+						$('#modalrah').prop("checked", true);
+
+					}
+					console.log(pormasraf);
+					if (pormasraf == 'True') {
+						$('#modalpormasraf').prop("checked", true);
+
+					}
+					console.log(internal);
+					if (internal == 'True') {
+						$('#modalinternal').prop("checked", true);
+
+					}
+					// Show the modal
+					$('#editModal').modal('show');
+				});
+			});
+		</script>
+		
+	}
+	
+</body>
+	<!--end::Body-->
+</html>
+
+                                                                                                                                               

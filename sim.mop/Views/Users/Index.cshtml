@@ -1,0 +1,66 @@
+﻿@model IEnumerable<sim.mop.Models.TblUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fldMgCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fldName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fldUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fldPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fldIsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fldPermission)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldMgCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldIsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fldPermission)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.fldId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.fldId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.fldId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@

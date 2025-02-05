@@ -1,0 +1,35 @@
+﻿ @using Microsoft.AspNetCore.Http;
+
+@model sim.mop.Models.VwDataTable
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblUser</h4>
+    <hr />
+    <dl class="row">
+      
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.fldMGCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fldMGCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.fldName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fldName)
+        </dd>
+       
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.fldID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
