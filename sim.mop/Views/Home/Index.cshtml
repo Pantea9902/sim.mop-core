@@ -355,16 +355,20 @@
 						$('#modalrah').prop("checked", true);
 
 					}
+else if (rahbordi == 'False') { $('.modal-body #modalrah').prop('checked', false); }
+
 					console.log(pormasraf);
 					if (pormasraf == 'True') {
 						$('#modalpormasraf').prop("checked", true);
 
 					}
+	else if (pormasraf == 'False') { $('.modal-body #modalpormasraf').prop('checked', false); }
 					console.log(internal);
 					if (internal == 'True') {
 						$('#modalinternal').prop("checked", true);
 
 					}
+else if (internal == 'False') { $('.modal-body #modalinternal').prop('checked', false); }
 					// Show the modal
 					$('#editModal').modal('show');
 				});
